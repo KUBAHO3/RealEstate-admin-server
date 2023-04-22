@@ -61,7 +61,7 @@ const getPropertyDetail = async (req, res) => {
 const createProperty = async (req, res) => {
     try {
 
-        const { title, description, propertyType, location, price, photo, email} = req.body;
+        const { title, description, propertyType, location, price, photo, email, rooms, baths, area, rentFrequency, furnishingStatus,} = req.body;
 
         //Start new swssion ...
         const session = await mongoose.startSession();
@@ -79,6 +79,12 @@ const createProperty = async (req, res) => {
             propertyType,
             location,
             price,
+            rooms,
+            baths,
+            area,
+            rentFrequency,
+            furnishingStatus,
+            amenities,
             photo: photoUrl.url,
             creator: user._id
         });
